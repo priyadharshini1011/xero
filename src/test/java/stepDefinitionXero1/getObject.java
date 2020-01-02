@@ -1,4 +1,4 @@
-package stepDefinitionXero;
+package stepDefinitionXero1;
 
 import java.util.HashMap;
 
@@ -8,8 +8,9 @@ public class getObject extends base {
 	public String getValue(String arg1) {
 		// TODO Auto-generated method stub
 		HashMap<String,String> objectRepo = new HashMap<String,String>();
+		
 		objectRepo.put("User Name", "//input[@id='email']");
-
+		objectRepo.put("browserValidated", "//h2[@class='x-boxed noBorder']");
 		objectRepo.put("Password", "//input[@id='password']");
 		objectRepo.put("Login Button", "//button[@id='submitButton']");
 		
@@ -57,9 +58,10 @@ public class getObject extends base {
 		objectRepo.put("searchtext", "//div[@class='input-container show-placeholder']");
 		objectRepo.put("LoginName", "/html/body/div[1]/header/div/ol[2]/li[5]/button/div/abbr");
 		objectRepo.put("helptext", "//h3[contains(text(),'Help')]");
-
+		objectRepo.put("30dayTrail", "//h2[@class='title title-2']");
 		objectRepo.put("LoginOut", "//div[@class='xrh-dropdown-layout xrh-addon--dropdown xrh-dropdown-is-open xrh-dropdown-is-opening xrh-dropdown-positionright']//a[@class='xrh-verticalmenuitem--body'][contains(text(),'Log out')]");
-		
+
+		objectRepo.put("ForgotP", "//div[@id='contentTop']");
 		objectRepo.put("uploadimage", "//span[@id='button-1041-btnInnerEl']");
 		objectRepo.put("browse", "//input[@class='x-form-file-input']");
 		objectRepo.put("upload", "//span[@id='button-1178-btnInnerEl']");

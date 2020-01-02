@@ -1,4 +1,4 @@
-package stepDefinitionXero;
+package stepDefinitionXero1;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,7 +16,7 @@ public class base {
 	public static ExtentReports reports;
 	public static ExtentTest logger;
 
-//asd
+
 	public WebDriver SetUp()
 	{
 
@@ -27,15 +27,11 @@ Date currentDate =new Date();
 String path = "C:\\Users\\auhum\\eclipse-workspace\\xeroApp\\extendreport"+filename;
 		reports = new ExtentReports(path);
 		logger=reports.startTest("Application Xero");
-	logger.assignAuthor("GeetaK");
-	logger.assignCategory("Smoke tEsting");
 
-	System.setProperty("webdriver.chrome.driver", "C:\\jar\\chromedriver.exe");
-	driver = new ChromeDriver();
 
 	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	driver.manage().window().maximize();
-	logger.log(LogStatus.PASS, "Chrome launched successfully");
+	//logger.log(LogStatus.PASS, "Chrome launched successfully");
 	return driver;
 	}
 

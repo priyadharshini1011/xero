@@ -1,7 +1,8 @@
 Feature: Automate testCase in xero
-@Smoke
+@Smoke 	
 Scenario: Navigate to XERO
 Given : open the xero browser
+Then : Validate isdisplayed "browserValidated"
 Then : Enter the1 "User Name"
 |data|
 |priyadharshini.dp.1011@gmail.com|
@@ -9,11 +10,12 @@ Then : Enter the1 "Password"
 |data|
 |disha@123|
 Then : Click on the "Login Button"
-When : validate the url "Xero | Dashboard | elf"
+When : validate the url "Xero | Dashboard | hcl"
 Then : Close the browser
 
 Scenario: Incorrect Email 1C
 Given : open the xero browser
+Then : Validate isdisplayed "browserValidated"
 When : Enter the "User Name" "recData[3][1]"
 Then : Enter the "Password" "recData[1][2]"	
 Then : Click on the "Login Button"
@@ -22,6 +24,7 @@ Then : Close the browser
 
 Scenario: Incorrect Password 1B
 Given : open the xero browser
+Then : Validate isdisplayed "browserValidated"
 Then : Enter the1 "User Name"
 |data|
 |priyadharshini.dp.1011@gmail.com|
@@ -31,20 +34,24 @@ Then : Enter the1 "Password"
 Then : Click on the "Login Button"
 When : validate the text "errormsg" "Your email or password is incorrect"
 Then : Close the browser
-
+	
 Scenario: Click on Forgot password 1D
 Given : open the xero browser
+Then : Validate isdisplayed "browserValidated"
 Then : Click on the "Forgot password"
+Then : Validate isdisplayed "ForgotP"
 Then : Enter the1 "ForgotXpath"
 |data|
 |priyadharshini.dp.1011@gmail.com|
 Then : Click on the "sendLink"
 When : validate the url "Forgotten Password"
 Then : Close the browser
-
+	
 Scenario: Sign Up to XDC 2A
 Given : open the xero browser
+Then : Validate isdisplayed "browserValidated"
 Then : Click on the "try free"
+Then : Validate isdisplayed "30dayTrail"
 Then : Enter the1 "FirstNameXpath"
 |data|
 |priyadharshini| 
@@ -64,14 +71,18 @@ Then : Close the browser
 
 Scenario: Sign Up to XDC 2B
 Given : open the xero browser
+Then : Validate isdisplayed "browserValidated"
 Then : Click on the "try free"
+Then : Validate isdisplayed "30dayTrail"
 Then : Click on the "GetStarted"
 When : validate the text "signuperror" "First name can't be empty"
 Then : Close the browser
-
+ 	
 Scenario: Sign Up to XDC 2C
 Given : open the xero browser
+Then : Validate isdisplayed "browserValidated"
 Then : Click on the "try free"
+Then : Validate isdisplayed "30dayTrail"
 Then : Click on the "terms"
 Then : switch to primary window "Terms of Use | Xero US"
 Then : Click on the "privacy"
@@ -80,6 +91,7 @@ Then : Close the browser
 
 Scenario: Sign Up to XDC 2D
 Given : open the xero browser
+Then : Validate isdisplayed "browserValidated"
 Then : Click on the "try free"
 Then : Click on the "offer details"
 Then : switch to primary window "Offer details | Xero US"
@@ -88,7 +100,9 @@ Then : Close the browser
 
 Scenario: Sign Up to XDC 2E
 Given : open the xero browser
+Then : Validate isdisplayed "browserValidated"
 Then : Click on the "try free"
+Then : Validate isdisplayed "30dayTrail"
 Then : Click on the "accountant or bookkeeper"
 When : validate the url "Sign up for the Xero Partner Program | Xero US"
 Then : Close the browser

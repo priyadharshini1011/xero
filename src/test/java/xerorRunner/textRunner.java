@@ -13,8 +13,8 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		format = { "pretty", "html:target/cucumber", "json:target/cucumber-report.json" },features = "C:\\Users\\auhum\\eclipse-workspace\\xeroApp\\src\\test\\java\\Feature"
- ,glue={"stepDefinitionXero"},tags= {"@Smoke"},dryRun=false)
+		format = { "pretty", "html:target/cucumber", "json:target/cucumber-report.json" },features = "C:\\Users\\auhum\\eclipse-workspace\\xeroApp2\\src\\test\\java\\Feature"
+ ,glue={"stepDefinitionXero1"},tags= {"@Smoke"},dryRun=false)
 public class textRunner {
 
 }

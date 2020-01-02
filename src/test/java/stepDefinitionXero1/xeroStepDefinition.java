@@ -1,4 +1,4 @@
-package stepDefinitionXero;
+package stepDefinitionXero1;
 import org.openqa.selenium.JavascriptExecutor;
 
 import static extentReport.BaseUtil.Features;
@@ -9,9 +9,13 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
 import org.testng.annotations.Test;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -31,10 +35,12 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.GherkinKeyword;
 import com.aventstack.extentreports.gherkin.model.Feature;
 import com.aventstack.extentreports.gherkin.model.Scenario;
+import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
 import com.testAutomation.Listeners.ListnerImp;
 
 import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -50,13 +56,28 @@ public class xeroStepDefinition extends getObject{
 	WebDriver driver;
 	ListnerImp r = new ListnerImp();
 	ExtentReportUtil report = new ExtentReportUtil();
+@Before
+public  void setI() {
+	SimpleDateFormat simpledateformatter = new SimpleDateFormat("'sampledemo_'yyyyMMddHHmm'.html'");
+	Date currentDate =new Date();
+		String filename = simpledateformatter.format(currentDate);
+	String path = "C:\\Users\\auhum\\eclipse-workspace\\xeroApp2\\extendreport"+filename;
+			reports = new ExtentReports(path);
+			logger=reports.startTest("Application Xero");
+			System.setProperty("webdriver.chrome.driver","C:\\jar\\chromedriver.exe");
+			driver = new ChromeDriver();
+
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+	
+}
 	@Given("^: open the xero browser$")
 public void open_the_xero_browser() throws Throwable {
 //System.setProperty("webdriver.chrome.driver","C:\\jar\\chromedriver.exe");
 //driver = new ChromeDriver();
-	driver=SetUp();
+	//driver=SetUp();
 	driver.get("https://login.xero.com");
-	logger.log(LogStatus.PASS, "got the URL");
+logger.log(LogStatus.PASS, "got the URL");
 
 
 }
@@ -194,11 +215,11 @@ public void validate_the_url(String arg1) throws Throwable {
 String url = driver.getTitle();
 	System.out.println(url);
 //Assert.assertEquals(arg1, url);
-	if(arg1.equals(url)) {
+if(arg1.equals(url)) {
 		logger.log(LogStatus.PASS, "got the URL");
 	}else
 	{
-		logger.log(LogStatus.PASS, "got the URL");
+		logger.log(LogStatus.FAIL, "got the URL");
 	}
 	
 Thread.sleep(5000);
@@ -213,10 +234,10 @@ public void scroll_down() throws Throwable {
 
 @Then("^: Close the browser$")
 public void close_the_browser() throws Throwable {
-	logger = reports.startTest("Closing Browser");
-	logger.log(LogStatus.PASS, "Closing");
-	reports.endTest(logger);
-	reports.flush();
+//	logger = reports.startTest("Closing Browser");
+//	logger.log(LogStatus.PASS, "Closing");
+//	reports.endTest(logger);
+//	reports.flush();
 	
 	driver.close();
 
@@ -313,6 +334,7 @@ public void capatcha_click_ok() throws Throwable {
 @After
 public  void teaqrdown() {
 	driver.quit();
+	reports.endTest(logger);
 	reports.flush();
 }
 public static String[][] getDataInput(String filepath,String filename, String Sheetname)throws IOException
